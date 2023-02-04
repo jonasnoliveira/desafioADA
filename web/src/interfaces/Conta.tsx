@@ -16,7 +16,7 @@ export interface Conta {
   Pendente: number;
   Nome_alojamento: number;
   Localidade: string;
-  Portal: string;
-  Comissao_portal_intermediario_comissao_calculada: number;
-  Comissao_portal_intermediario_comissao_personalizada: number;
+  Portal?: string;
+  Comissao_portal_intermediario_comissao_calculada?: number;
+  Comissao_portal_intermediario_comissao_personalizada?: number;
 }

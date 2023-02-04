@@ -8,7 +8,7 @@ export function ConfigPage() {
         <div className="grid grid-cols-1 gap-6 mb-6">
           <div className="w-full px-4 py-5 bg-white rounded-lg shadow">
             <div className="mt-1 text-3xl font-semibold text-gray-900">
-              Config
+              Configurações
             </div>
           </div>
         </div>

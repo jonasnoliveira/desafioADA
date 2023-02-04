@@ -11,5 +11,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.get("/contas", Controller.findBill);
+app.get("/contas_a_pagar", Controller.findBill);
 
 app.listen(port, () => console.log(`Server is running in port: ${port}`));

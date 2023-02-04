@@ -33,6 +33,13 @@ class Repository {
       orderBy: {  Referencia: 'asc' }
     })
   }
+  public async findBillToPay(limit: number, offset: number): Promise<any> {
+    return this.repository.payableBills.findMany({
+      take: limit,
+      skip: offset,
+      orderBy: {  Id_referencia: 'asc' }
+    })
+  }
 }
 
 export default Repository;
