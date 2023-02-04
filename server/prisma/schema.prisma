@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Bills {
+  Referencia                                           Int               @id @default(autoincrement())
+  Data                                                 DateTime
+  Data_de_check_in                                     DateTime
+  Data_de_check_out                                    DateTime
+  Aluguel_com_imposto                                  Float
+  Aluguel_sem_imposto                                  Float
+  Imposto_do_aluguel                                   Float
+  Extras_com_imposto                                   Float
+  Extras_sem_imposto                                   Float
+  Imposto_dos_extras                                   Float
+  Total_da_reserva_com_imposto                         Float
+  Total_da_reserva_sem_imposto                         Float
+  Total_imposto                                        Float
+  Pagamento                                            Float
+  Pendente                                             Float
+  Nome_alojamento                                      Int
+  Localidade                                           String
+  Portal                                               String?
+  Comissao_portal_intermediario_comissao_calculada     Float?
+  Comissao_portal_intermediario_comissao_personalizada Float?
+  PayBills                                             PayableBills[]
+  ReceiveBills                                         ReceivableBills[]
+}
+
+model PayableBills {
+  Id              Int      @id @default(autoincrement())
+  Id_referencia   Int
+  Data_vencimento DateTime
+  Valor           Float
+  Referencia      Bills    @relation(fields: [Id_referencia], references: [Referencia])
+}
+
+model ReceivableBills {
+  Id              Int      @id @default(autoincrement())
+  Id_referencia   Int
+  Data_vencimento DateTime
+  Valor           Float
+  Referencia      Bills    @relation(fields: [Id_referencia], references: [Referencia])
+}
