@@ -1,4 +1,3 @@
-import { PrismaClient } from "@prisma/client";
 import { Bills, PayableBills, ReceivableBills } from "./model";
 import { Readable } from "stream";
 import { addDays } from "date-fns";
@@ -15,7 +14,7 @@ class Service {
 
   public async findBill(limit: any, offset: any): Promise<Bills[]> {
     try {
-      limit = limit ? Number(limit) : 1999;
+      limit = limit ? Number(limit) : 10;
       offset = offset ? Number(offset) : 0;
 
       const validate = await this.repository.validate();

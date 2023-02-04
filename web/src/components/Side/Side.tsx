@@ -28,7 +28,7 @@ export default function Sidebar() {
                     <p className="pr-2">
                       <FaTable />
                     </p>
-                    CSV
+                    Importar CSV
                   </Button>
                 </Link>
               </li>
