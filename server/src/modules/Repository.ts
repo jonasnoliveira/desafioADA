@@ -1,4 +1,4 @@
-import { Bills, PayableBills, ReceivableBills } from './model';
+import { Bills, PayableBills, ReceivableBills } from "./model";
 import { PrismaClient } from "@prisma/client";
 
 class Repository {
@@ -10,19 +10,21 @@ class Repository {
 
   public async createBill(data: Bills): Promise<Bills> {
     return this.repository.bills.create({
-      data: data
+      data: data,
     });
   }
 
   public async createBillToPay(data: PayableBills): Promise<PayableBills> {
     return this.repository.payableBills.create({
-      data: data
+      data: data,
     });
   }
 
-  public async createBillToReceive(data: ReceivableBills): Promise<ReceivableBills> {
+  public async createBillToReceive(
+    data: ReceivableBills
+  ): Promise<ReceivableBills> {
     return this.repository.receivableBills.create({
-      data: data
+      data: data,
     });
   }
 
@@ -30,15 +32,23 @@ class Repository {
     return this.repository.bills.findMany({
       take: limit,
       skip: offset,
-      orderBy: {  Referencia: 'asc' }
-    })
+      orderBy: { Referencia: "asc" },
+    });
   }
   public async findBillToPay(limit: number, offset: number): Promise<any> {
     return this.repository.payableBills.findMany({
       take: limit,
       skip: offset,
-      orderBy: {  Id_referencia: 'asc' }
-    })
+      orderBy: { Id_referencia: "asc" },
+    });
+  }
+
+  public async findBillToReceive(limit: number, offset: number): Promise<any> {
+    return this.repository.receivableBills.findMany({
+      take: limit,
+      skip: offset,
+      orderBy: { Id_referencia: "asc" },
+    });
   }
 }
 

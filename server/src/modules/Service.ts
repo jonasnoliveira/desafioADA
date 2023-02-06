@@ -28,6 +28,38 @@ class Service {
     }
   }
 
+  public async findBillToPay(limit: any, offset: any): Promise<PayableBills[]> {
+    try {
+      limit = limit ? Number(limit) : 10;
+      offset = offset ? Number(offset) : 0;
+
+      const validate = await this.repository.validate();
+
+      if (validate < 1) {
+        await this.createBill();
+      }
+      return this.repository.findBillToPay(limit, offset);
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  public async findBillToReceive(limit: any, offset: any): Promise<ReceivableBills[]> {
+    try {
+      limit = limit ? Number(limit) : 10;
+      offset = offset ? Number(offset) : 0;
+
+      const validate = await this.repository.validate();
+
+      if (validate < 1) {
+        await this.createBill();
+      }
+      return this.repository.findBillToReceive(limit, offset);
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
   public async createBill(): Promise<string> {
     try {
       const importCSV = fs.readFileSync("./desafio.csv");
