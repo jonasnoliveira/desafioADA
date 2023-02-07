@@ -17,24 +17,24 @@ export function Table(props: Conta) {
       <td className="px-6 py-4">
         {moment(props.Data_de_check_out).format('DD/MM/YYYY')}
       </td>
-      <td className="px-6 py-4">R$ {props.Aluguel_com_imposto}</td>
-      <td className="px-6 py-4">{props.Aluguel_sem_imposto}</td>
-      <td className="px-6 py-4">{props.Imposto_do_aluguel}</td>
-      <td className="px-6 py-4">{props.Extras_com_imposto}</td>
-      <td className="px-6 py-4">{props.Imposto_dos_extras}</td>
-      <td className="px-6 py-4">{props.Total_da_reserva_com_imposto}</td>
-      <td className="px-6 py-4">{props.Total_da_reserva_sem_imposto}</td>
-      <td className="px-6 py-4">{props.Total_imposto}</td>
-      <td className="px-6 py-4">{props.Pagamento}</td>
-      <td className="px-6 py-4">{props.Pendente}</td>
+      <td className="px-6 py-4">R$ {props.Aluguel_com_imposto.toFixed(2)}</td>
+      <td className="px-6 py-4">R$ {props.Aluguel_sem_imposto.toFixed(2)}</td>
+      <td className="px-6 py-4">R$ {props.Imposto_do_aluguel.toFixed(2)}</td>
+      <td className="px-6 py-4">R$ {props.Extras_com_imposto.toFixed(2)}</td>
+      <td className="px-6 py-4">R$ {props.Imposto_dos_extras.toFixed(2)}</td>
+      <td className="px-6 py-4">R$ {props.Total_da_reserva_com_imposto.toFixed(2)}</td>
+      <td className="px-6 py-4">R$ {props.Total_da_reserva_sem_imposto.toFixed(2)}</td>
+      <td className="px-6 py-4">R$ {props.Total_imposto.toFixed(2)}</td>
+      <td className="px-6 py-4">R$ {props.Pagamento.toFixed(2)}</td>
+      <td className="px-6 py-4">R$ {props.Pendente.toFixed(2)}</td>
       <td className="px-6 py-4">{props.Nome_alojamento}</td>
       <td className="px-6 py-4">{props.Localidade}</td>
       <td className="px-6 py-4">{props.Portal}</td>
       <td className="px-6 py-4">
-        {props.Comissao_portal_intermediario_comissao_calculada}
+        R$ {props.Comissao_portal_intermediario_comissao_calculada?.toFixed(2)}
       </td>
       <td className="px-6 py-4">
-        {props.Comissao_portal_intermediario_comissao_personalizada}
+        R$ {props.Comissao_portal_intermediario_comissao_personalizada?.toFixed(2)}
       </td>
     </tr>
   );

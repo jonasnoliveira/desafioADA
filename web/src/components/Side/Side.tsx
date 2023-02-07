@@ -33,6 +33,26 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="rounded-sm">
+                <Link to="/conta_a_pagar">
+                  <Button>
+                    <p className="pr-2">
+                      <FaTable />
+                    </p>
+                    Contas a Pagar
+                  </Button>
+                </Link>
+              </li>
+              <li className="rounded-sm">
+                <Link to="/conta_a_receber">
+                  <Button>
+                    <p className="pr-2">
+                      <FaTable />
+                    </p>
+                    Contas a Receber
+                  </Button>
+                </Link>
+              </li>
+              <li className="rounded-sm">
                 <Link to="/config">
                   <Button>
                     <p className="pr-2">
